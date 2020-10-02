@@ -75,4 +75,3 @@ The result of the t.test came to be 9.421e-06 < 0.05, therefore the null hypothe
 
 
 
-When your markdown file successfully knits and you are satisfied with your results, then push your work back to your github repository and submit the link to your github repo to canvas  to complete this assignment.
