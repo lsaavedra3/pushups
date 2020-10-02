@@ -1,7 +1,7 @@
 ---
 title: "Who Does More Pushups"
-author: "Your Name"
-date: "Fall 2020"
+author: "Lelainy Saavedra"
+date: "October 1st, 2020"
 output:
 html_document:
 number_sections: true
@@ -12,15 +12,25 @@ toc: true
 ```{r include=FALSE,echo=FALSE}
 require(tigerstats)
 require(tidyverse)
+data=(pushups)
 ```
 
 # Introduction
 
-<!--In this section you explain what you are trying to show. Where did the data come from? What is the research or other question you are trying to answer?!-->
+<!--In this section you explain what you are trying to show. Where did the data come from? What is the research or other question you are trying to answer?!-->  
+This project is going to be determined by a categorical and numerical level. 
+Pushups are the numeric variable.  
+Position is the categorical variable.
+I am trying to determine whether my null hypothesis is correct or not. In order to do that I will load the numerical~cat and use the templates provided.
+
 
 # Methods
 
 <!--Decide on your methods: use "variable analysis" or other appropriate descriptors. Make sure to choose at least one graphical method and at least one numerical method.!-->
+Methods we are going to use is  numerical~cat.  
+$H_O$: There is NO difference in the average number of pushups a player can do in 2 minutes based on the position they play.  
+$H_A$: There ISa difference in the average number of pushups a player can do in 2 minutes based on the position they play.  
+
 
 # Results
 
@@ -28,21 +38,41 @@ require(tidyverse)
 
 ## Descriptive Results
 
+
+
 ### Graphical Descriptive Results
 
 <!--Graphical results here. Make sure to show your code. Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too. Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+boxplot(pushups~position,data=pushups)
+```
+
 ### Numerical Descriptive Results
 
-<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+<!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->  
+```{r}
+favstats(pushups~position,data=pushups)
+```
+
 
 ## Inferential Results
 
-<!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
+<!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->  
+
+```{r}
+t.test(pushups~position,data=pushups)
+```
 
 
 # Discussion and Conclusion
 
-<!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+<!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->  
+
+We Used a t.test to determine the inferential results because we only had 2 levels which were; The position and the skill.  
+
+The result of the t.test came to be 9.421e-06 < 0.05, therefore the null hypothesis is REJECTED. Since the results are less than 0.05, We conclude that there IS a difference between the average amount of pushups a player can do in two minutes based on the position they play. 
+
+
 
 When your markdown file successfully knits and you are satisfied with your results, then push your work back to your github repository and submit the link to your github repo to canvas  to complete this assignment.
